@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moatieh <moatieh@student.42amman.com>      +#+  +:+       +#+        */
+/*   By: moatieh <moatieh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 23:20:05 by moatieh           #+#    #+#             */
-/*   Updated: 2025/09/30 12:55:35 by moatieh          ###   ########.fr       */
+/*   Updated: 2025/09/30 17:02:32 by moatieh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 133
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);

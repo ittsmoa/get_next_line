@@ -6,7 +6,7 @@
 /*   By: moatieh <moatieh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 23:20:02 by moatieh           #+#    #+#             */
-/*   Updated: 2025/09/30 12:47:10 by moatieh          ###   ########.fr       */
+/*   Updated: 2025/09/30 19:56:19 by moatieh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	one_line = line_maker(rem);
-	rem = rem_saver(rem);
+	rem = NULL;//rem_saver(rem);
 	return (one_line);
 }
 

@@ -6,7 +6,7 @@
 /*   By: moatieh <moatieh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 23:19:58 by moatieh           #+#    #+#             */
-/*   Updated: 2025/09/30 12:16:50 by moatieh          ###   ########.fr       */
+/*   Updated: 2025/09/30 20:03:20 by moatieh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	slen;
 	size_t	i;
 
-	i = 0;
-	slen = ft_strlen(s);
 	if (!s)
 		return (NULL);
+	i = 0;
+	slen = ft_strlen(s);
 	if (start >= slen)
 	{
 		str = (char *)malloc(1);

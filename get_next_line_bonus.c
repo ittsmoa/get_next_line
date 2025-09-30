@@ -85,12 +85,12 @@ static char	*reader(int fd, char *rem)
 char	*get_next_line(int fd)
 {
 	char		*one_line;
-	static char	*rem[1000];
+	static char	*rem[1024];
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd > 1024 || fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	rem[fd] = reader(fd, rem[fd]);
-	if (!rem[fd] || rem[fd][0] == '\0')
+	if (!rem[fd] || *rem[fd] == '\0')
 	{
 		if (rem[fd])
 		{
