@@ -6,7 +6,7 @@
 /*   By: moatieh <moatieh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 23:20:02 by moatieh           #+#    #+#             */
-/*   Updated: 2025/09/30 19:56:19 by moatieh          ###   ########.fr       */
+/*   Updated: 2025/09/30 20:43:54 by moatieh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static char	*rem_saver(char *rem)
 	int		i;
 
 	i = 0;
+	if (!rem)
+		return (NULL);
 	while (rem[i] && rem[i] != '\n')
 		i++;
 	if (rem[i] == '\n')
@@ -56,7 +58,6 @@ static char	*rem_saver(char *rem)
 static char	*reader(int fd, char *rem)
 {
 	char	*buffer;
-	char	*temp;
 	int		bytes;
 
 	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
@@ -73,10 +74,9 @@ static char	*reader(int fd, char *rem)
 			return (NULL);
 		}
 		buffer[bytes] = '\0';
-		temp = ft_strjoin(rem, buffer);
-		if (rem)
-			free(rem);
-		rem = temp;
+		rem = ft_strjoin(rem, buffer);
+		if (!rem)
+			break ;
 	}
 	free(buffer);
 	return (rem);
@@ -100,7 +100,13 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	one_line = line_maker(rem);
-	rem = NULL;//rem_saver(rem);
+	if (!one_line)
+	{
+		free(rem);
+		rem = NULL;
+		return (NULL);	
+	}
+	rem = rem_saver(rem);
 	return (one_line);
 }
 

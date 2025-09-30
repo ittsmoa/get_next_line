@@ -6,7 +6,7 @@
 /*   By: moatieh <moatieh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 23:19:58 by moatieh           #+#    #+#             */
-/*   Updated: 2025/09/30 20:03:20 by moatieh          ###   ########.fr       */
+/*   Updated: 2025/09/30 20:32:35 by moatieh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static char	*cpy(char *str, char const *first, char const *sec)
 	return (str);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*str;
 	size_t	i;
@@ -79,6 +79,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!str)
 		return (NULL);
 	str = cpy(str, s1, s2);
+	free(s1);
 	return (str);
 }
 
@@ -88,10 +89,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	slen;
 	size_t	i;
 
-	if (!s)
-		return (NULL);
 	i = 0;
 	slen = ft_strlen(s);
+	if (!s)
+		return (NULL);
 	if (start >= slen)
 	{
 		str = (char *)malloc(1);
