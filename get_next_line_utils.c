@@ -6,7 +6,7 @@
 /*   By: moatieh <moatieh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 23:19:58 by moatieh           #+#    #+#             */
-/*   Updated: 2025/09/25 14:24:39 by moatieh          ###   ########.fr       */
+/*   Updated: 2025/09/30 12:16:50 by moatieh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,6 @@ int	ft_strlen(const char *s)
 		count++;
 	}
 	return (count);
-}
-
-char	*ft_strdup(const char *s)
-{
-	char	*cpy;
-	size_t	slen;
-	int		count;
-
-	slen = ft_strlen(s);
-	cpy = (char *)malloc((slen + 1) * sizeof(char));
-	if (!cpy)
-		return (NULL);
-	count = 0;
-	while (s[count])
-	{
-		cpy[count] = s[count];
-		count++;
-	}
-	cpy[count] = '\0';
-	return (cpy);
 }
 
 static char	*cpy(char *str, char const *first, char const *sec)
@@ -109,17 +89,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
+	slen = ft_strlen(s);
 	if (!s)
 		return (NULL);
-	slen = ft_strlen(s);
 	if (start >= slen)
 	{
 		str = (char *)malloc(1);
 		str[0] = '\0';
 		return (str);
 	}
-	if (len > slen - start)
-		len = slen - start;
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
@@ -130,7 +108,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		start++;
 	}
 	str[i] = '\0';
-	return str;
+	return (str);
 }
 
 char	*ft_strchr(const char *s, int c)
