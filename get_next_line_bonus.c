@@ -34,6 +34,8 @@ static char	*rem_saver(char *rem)
 	int		i;
 
 	i = 0;
+	if (!rem)
+		return (NULL);
 	while (rem[i] && rem[i] != '\n')
 		i++;
 	if (rem[i] == '\n')
@@ -56,7 +58,6 @@ static char	*rem_saver(char *rem)
 static char	*reader(int fd, char *rem)
 {
 	char	*buffer;
-	char	*temp;
 	int		bytes;
 
 	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
@@ -73,10 +74,9 @@ static char	*reader(int fd, char *rem)
 			return (NULL);
 		}
 		buffer[bytes] = '\0';
-		temp = ft_strjoin(rem, buffer);
-		if (rem)
-			free(rem);
-		rem = temp;
+		rem = ft_strjoin(rem, buffer);
+		if (!rem)
+			break ;
 	}
 	free(buffer);
 	return (rem);
@@ -87,10 +87,10 @@ char	*get_next_line(int fd)
 	char		*one_line;
 	static char	*rem[1024];
 
-	if (fd > 1024 || fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	rem[fd] = reader(fd, rem[fd]);
-	if (!rem[fd] || *rem[fd] == '\0')
+	if (!rem[fd] || rem[fd][0] == '\0')
 	{
 		if (rem[fd])
 		{
@@ -100,6 +100,30 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	one_line = line_maker(rem[fd]);
+	if (!one_line)
+	{
+		free(rem[fd]);
+		rem[fd] = NULL;
+		return (NULL);
+	}
 	rem[fd] = rem_saver(rem[fd]);
 	return (one_line);
 }
+
+// int main(void)
+// {
+// 	int fd;
+// 	int fd2;
+// 	char *line = get_next_line(fd);
+// 	char *line2 = get_next_line(fd2);
+
+// 	fd = open("text.txt", O_RDONLY);
+// 	fd2 = open("textt.txt", O_RDONLY);
+// 		printf("%s", line);
+// 		printf("%s", line2);
+// 		free(line);
+// 		free(line2);
+// 	close(fd);
+// 	close(fd2);
+// 	return (0);
+// }

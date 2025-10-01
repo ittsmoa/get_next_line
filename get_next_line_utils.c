@@ -6,22 +6,11 @@
 /*   By: moatieh <moatieh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 23:19:58 by moatieh           #+#    #+#             */
-/*   Updated: 2025/09/30 20:32:35 by moatieh          ###   ########.fr       */
+/*   Updated: 2025/10/01 13:42:30 by moatieh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-// void* ft_malloc(size_t size)
-// {
-//     static size_t call = 0;
-
-//     call++;
-//     if (call % 2 == 1)
-//         return (NULL);
-//     else
-//         return (malloc(size));
-// }
 
 int	ft_strlen(const char *s)
 {

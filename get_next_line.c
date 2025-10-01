@@ -6,7 +6,7 @@
 /*   By: moatieh <moatieh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 23:20:02 by moatieh           #+#    #+#             */
-/*   Updated: 2025/09/30 20:43:54 by moatieh          ###   ########.fr       */
+/*   Updated: 2025/10/01 14:05:55 by moatieh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ char	*get_next_line(int fd)
 	{
 		free(rem);
 		rem = NULL;
-		return (NULL);	
+		return (NULL);
 	}
 	rem = rem_saver(rem);
 	return (one_line);
