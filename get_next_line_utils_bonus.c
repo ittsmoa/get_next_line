@@ -12,17 +12,6 @@
 
 #include "get_next_line_bonus.h"
 
-// void* ft_malloc(size_t size)
-// {
-//     static size_t call = 0;
-
-//     call++;
-//     if (call % 2 == 1)
-//         return (NULL);
-//     else
-//         return (malloc(size));
-// }
-
 int	ft_strlen(const char *s)
 {
 	int	count;
