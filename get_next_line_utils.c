@@ -6,22 +6,11 @@
 /*   By: moatieh <moatieh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 23:19:58 by moatieh           #+#    #+#             */
-/*   Updated: 2025/09/30 12:16:50 by moatieh          ###   ########.fr       */
+/*   Updated: 2025/10/01 13:42:30 by moatieh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-// void* ft_malloc(size_t size)
-// {
-//     static size_t call = 0;
-
-//     call++;
-//     if (call % 2 == 1)
-//         return (NULL);
-//     else
-//         return (malloc(size));
-// }
 
 int	ft_strlen(const char *s)
 {
@@ -62,7 +51,7 @@ static char	*cpy(char *str, char const *first, char const *sec)
 	return (str);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*str;
 	size_t	i;
@@ -79,6 +68,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!str)
 		return (NULL);
 	str = cpy(str, s1, s2);
+	free(s1);
 	return (str);
 }
 

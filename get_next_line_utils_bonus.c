@@ -51,7 +51,7 @@ static char	*cpy(char *str, char const *first, char const *sec)
 	return (str);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*str;
 	size_t	i;
@@ -68,6 +68,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!str)
 		return (NULL);
 	str = cpy(str, s1, s2);
+	free(s1);
 	return (str);
 }
 
